@@ -1,0 +1,105 @@
+### Server Basics & Connection
+
+* **`hostname "String"`**: Name of the server displayed in the server browser.
+* **`sv_password "String"`**: Password required to join the server (leave empty for public).
+* **`rcon_password "String"`**: Password for remote console (RCON) administration access.
+* **`sv_tags "String"`**: Comma-separated tags for the server browser filter (e.g., "alltalk,custom,eu").
+* **`sv_region "int"`**: Geographical region of the server (e.g., 3 for Europe, 255 for World).
+* **`sv_lan "0/1"`**: Restricts the server to the local area network only.
+* **`sv_visiblemaxplayers "int"`**: Overrides the maximum number of players visible in the server browser.
+* **`sv_contact "String"`**: Admin contact email or webpage.
+
+### Gameplay & Match Rules
+
+* **`mp_timelimit "int"`**: Time in minutes before the map changes.
+* **`mp_maxrounds "int"`**: Maximum number of rounds before the map changes.
+* **`mp_winlimit "int"`**: Number of rounds a team must win to end the map.
+* **`mp_friendlyfire "0/1"`**: Enables or disables team damage.
+* **`mp_autoteambalance "0/1"`**: Automatically moves players to balance team sizes.
+* **`mp_teams_unbalance_limit "int"`**: Maximum player difference allowed between teams before auto-balance triggers.
+* **`mp_respawnwavetime "float"`**: Multiplier for the respawn wave timer.
+* **`mp_disable_respawn_times "0/1"`**: If enabled, players respawn instantly upon death.
+* **`mp_match_end_at_timelimit "0/1"`**: Forces the match to end exactly when the timelimit hits, bypassing overtime.
+* **`mp_scrambleteams_auto "0/1"`**: Automatically scrambles teams if one side is dominating.
+* **`mp_scrambleteams_auto_windifference "int"`**: The win difference required to trigger an auto-scramble.
+* **`mp_stalemate_enable "0/1"`**: Enables sudden death mode on a stalemate.
+* **`mp_stalemate_timelimit "int"`**: Time in seconds for the sudden death phase.
+* **`mp_idlemaxtime "float"`**: Maximum time a player is allowed to be idle (in minutes).
+* **`mp_idledealmethod "int"`**: How to deal with idle players (1 = send to spectator, 2 = kick).
+
+### Combat & Weapon Mechanics
+
+* **`tf_weapon_criticals "0/1"`**: Enables or disables random critical hits.
+* **`tf_weapon_criticals_melee "0/1/2"`**: Controls melee random crits (0 = off, 1 = on, 2 = only if ranged crits are on).
+* **`tf_use_fixed_weaponspreads "0/1"`**: Disables random bullet spread for shotguns (shoots in a fixed grid pattern).
+* **`tf_damage_disablespread "0/1"`**: Disables the +/- 10% random damage variance on all weapons.
+* **`tf_spam_allow "0/1"`**: Allows players to spam voice commands without cooldown.
+* **`tf_avoidteammates "0/1"`**: Allows players to walk through their teammates.
+
+### Physics & World
+
+* **`sv_gravity "int"`**: Defines world gravity (Default: 800).
+* **`sv_friction "float"`**: Modifies world friction (Default: 4).
+* **`sv_cheats "0/1"`**: Enables cheat commands (disables achievements and standard stat tracking).
+* **`sv_stepsize "int"`**: Maximum height of a step a player can walk over.
+* **`sv_wateraccelerate "int"`**: Player movement acceleration in water.
+* **`sv_bounce "float"`**: Multiplier for physical object bouncing.
+* **`sv_turbophysics "0/1"`**: Turns on aggressive physics simulation.
+
+### Voting System
+
+* **`sv_allow_votes "0/1"`**: Enables or disables the built-in voting system.
+* **`sv_vote_allow_spectators "0/1"`**: Allows spectators to participate in votes.
+* **`sv_vote_issue_changelevel_allowed "0/1"`**: Allows votes to change the map.
+* **`sv_vote_issue_kick_allowed "0/1"`**: Allows votes to kick a player.
+* **`sv_vote_issue_scramble_teams_allowed "0/1"`**: Allows votes to scramble the teams.
+* **`sv_vote_kick_ban_duration "int"`**: Time in minutes a kicked player is banned (0 = kick only).
+* **`sv_vote_failure_timer "int"`**: Cooldown time in seconds after a failed vote before a new one can be called.
+* **`sv_vote_creation_timer "int"`**: Cooldown time in seconds for a specific player to call another vote.
+
+### Network & Rates (Tickrate & Bandwidth)
+
+* **`sv_minrate "int"`**: Minimum bandwidth rate allowed for clients (bytes/sec).
+* **`sv_maxrate "int"`**: Maximum bandwidth rate allowed for clients (bytes/sec).
+* **`sv_minupdaterate "int"`**: Minimum updates per second the server will send to a client.
+* **`sv_maxupdaterate "int"`**: Maximum updates per second the server will send to a client.
+* **`sv_mincmdrate "int"`**: Minimum commands per second the client can send to the server.
+* **`sv_maxcmdrate "int"`**: Maximum commands per second the client can send to the server.
+* **`sv_client_predict "0/1"`**: Forces clients to use client-side prediction.
+* **`sv_client_min_interp_ratio "float"`**: Minimum interpolation ratio forced on clients.
+* **`sv_client_max_interp_ratio "float"`**: Maximum interpolation ratio forced on clients.
+* **`sv_client_cmdrate_difference "float"`**: Maximum difference allowed between cmdrate and updaterate.
+
+### Security, RCON & FastDL
+
+* **`sv_pure "0/1/2"`**: Enforces default game files on clients (0 = off, 1 = whitelist, 2 = strict).
+* **`sv_pure_kick_clients "0/1"`**: Kicks clients who fail the sv_pure check.
+* **`sv_rcon_banpenalty "int"`**: Minutes to ban a user who fails RCON authentication.
+* **`sv_rcon_maxfailures "int"`**: Number of failed RCON attempts before a ban.
+* **`sv_rcon_minfailures "int"`**: Number of failed RCON attempts within a specific time window.
+* **`sv_rcon_minfailuretime "int"`**: Time window in seconds for sv_rcon_minfailures.
+* **`sv_allowdownload "0/1"`**: Allows clients to download custom files (maps, sounds) from the server.
+* **`sv_allowupload "0/1"`**: Allows clients to upload custom files (like custom sprays).
+* **`sv_downloadurl "String"`**: HTTP URL for FastDL to speed up custom file downloads (e.g., "[http://yourdomain.com/tf](https://www.google.com/search?q=http://yourdomain.com/tf&utm_source=gemini)").
+* **`net_maxfilesize "int"`**: Maximum file size in MB the server allows downloading directly without FastDL.
+
+### Communication & Logging
+
+* **`sv_alltalk "0/1"`**: Allows all players to hear each other's voice chat regardless of team.
+* **`sv_voiceenable "0/1"`**: Enables or disables voice chat entirely.
+* **`tf_restrict_askconnect "0/1"`**: Restricts clients from sending connection requests to other clients via the server.
+* **`log "on/off"`**: Enables or disables server logging.
+* **`sv_logfile "0/1"`**: Writes server logs to a file.
+* **`sv_logecho "0/1"`**: Echoes log information to the server console.
+* **`sv_logbans "0/1"`**: Logs server bans.
+* **`sv_stats "0/1"`**: Collects and logs CPU/network stats.
+
+### SourceTV (Spectator Broadcasting)
+
+* **`tv_enable "0/1"`**: Enables SourceTV broadcasting.
+* **`tv_name "String"`**: Name of the SourceTV spectator server.
+* **`tv_password "String"`**: Password required to spectate via SourceTV.
+* **`tv_delay "int"`**: Broadcast delay in seconds (prevents ghosting/cheating).
+* **`tv_maxclients "int"`**: Maximum number of SourceTV spectators allowed.
+* **`tv_autorecord "0/1"`**: Automatically records all matches as SourceTV demo files (.dem).
+* **`tv_transmitall "0/1"`**: Transmits all entity data (required for free-roam camera, uses more bandwidth).

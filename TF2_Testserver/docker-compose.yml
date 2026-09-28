@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  tf2:
+    image: cm2network/tf2:sourcemod
+    container_name: TF2_Testserver
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015/tcp"
+      - "27005:27005/udp"
+    environment:
+      #- SRCDS_HOSTNAME=OppossumNetwork_Testserver
+      - SRCDS_STARTMAP=koth_harvest_final
+      - SRCDS_MAXPLAYERS=12
+      - SRCDS_PORT=27015
+      - SRCDS_TOKEN=${TOKEN}
+      - SRCDS_PW=${PASSWORD}
+      - SRCDS_RCONPW=${RCON_PASSWORD}
+      #- SRCDS_CFG=server.cfg +hostname "OppossumNetwork_Testserver"
+    volumes:
+      - ./config/server.cfg:/home/steam/tf-dedicated/tf/cfg/server.cfg
+      - ./config/mapcycle.txt:/home/steam/tf-dedicated/tf/cfg/mapcycle.txt
+      - ./config/autoexec.cfg:/home/steam/tf-dedicated/tf/cfg/autoexec.cfg
+
+      - ./sourcemod/plugins:/home/steam/tf-dedicated/tf/addons/sourcemod/plugins
+      - ./sourcemod/sourcemod_configs:/home/steam/tf-dedicated/tf/addons/sourcemod/configs
+
+      - ./logs:/home/steam/tf-dedicated/tf/logs
+
+      - ./downloads:/home/steam/tf-dedicated/tf/download
+      
+      - ./maps:/home/steam/tf-dedicated/tf/maps
