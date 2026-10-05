@@ -25,11 +25,9 @@ services:
       - ./config/mapcycle.txt:/home/steam/tf-dedicated/tf/cfg/mapcycle.txt
       - ./config/autoexec.cfg:/home/steam/tf-dedicated/tf/cfg/autoexec.cfg
 
-      - ./sourcemod/plugins:/home/steam/tf-dedicated/tf/addons/sourcemod/plugins
-      - ./sourcemod/sourcemod_configs:/home/steam/tf-dedicated/tf/addons/sourcemod/configs
+      # Vollständiger Addons-Ordner (MetaMod + SourceMod)
+      - ./addons:/home/steam/tf-dedicated/tf/addons
 
       - ./logs:/home/steam/tf-dedicated/tf/logs
-
       - ./downloads:/home/steam/tf-dedicated/tf/download
-      
       - ./maps:/home/steam/tf-dedicated/tf/maps
