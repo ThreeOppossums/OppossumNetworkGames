@@ -2,3 +2,13 @@
 **logs/
 **maps/
 **server/
+
+**gamedata/
+**data/
+**bin/
+**/translations
+**GPLv2.txt
+**GPLv3.txt
+**LICENSE.txt
+**metamod_x64.vdf
+**metamod.vdf
